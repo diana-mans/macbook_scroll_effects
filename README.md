@@ -1,16 +1,43 @@
-# React + Vite
+# MacBook 3D Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Интерактивный лендинг в стиле Apple с 3D-визуализацией MacBook.
 
-Currently, two official plugins are available:
+## Технологии
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* __React__ — компонентная архитектура
+* __Three.js__ — 3D-графика и рендеринг
+* __GSAP__ — анимации и управление скроллом
+* __Tailwind CSS__ — стилизация
+* __Zustand__ — управление состоянием
+* __Vite__ — сборка и разработка
 
-## React Compiler
+## Возможности
+* 3D-модель MacBook с реалистичным освещением
+* Анимация модели при скролле
+* Параллакс-эффекты и закрепленные секции
+* Адаптивный дизайн
+* Плавные переходы между секциями
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Быстрый старт
 
-## Expanding the ESLint configuration
+```
+# Клонирование
+git clone https://diana-mans.github.io/macbook_scroll_effects/
+cd macbook_scroll_effects
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Установка зависимостей
+npm install
+
+# Запуск
+npm run dev
+```
+
+Откройте `http://localhost:5173` в браузере.
+
+## Структура
+
+Проект использует:
+
+* `@react-three/fiber` и `@react-three/drei` для 3D
+* `GSAP` с плагином ScrollTrigger для анимаций
+* Кастомные хуки для управления скроллом
