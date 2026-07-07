@@ -13,9 +13,12 @@ import useMacbookStore from "../../store";
 import {useEffect} from "react";
 import {noChangeParts} from "../../constants/index.js";
 
+const baseUrl = import.meta.env.VITE_BASE_URL || '';
+
+
 export default function ModelMacbook16(props) {
-  const { nodes, scene, materials } = useGLTF('/models/macbook-16-transformed.glb')
-    const texture = useTexture('/screen.png')
+  const { nodes, scene, materials } = useGLTF(`${baseUrl}/models/macbook-16-transformed.glb`)
+    const texture = useTexture(`${baseUrl}/screen.png`)
 
   const {color} = useMacbookStore()
   useEffect(() => {
@@ -55,4 +58,4 @@ export default function ModelMacbook16(props) {
   )
 }
 
-useGLTF.preload('/models/macbook-16-transformed.glb')
+useGLTF.preload(`${baseUrl}/models/macbook-16-transformed.glb`)

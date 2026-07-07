@@ -4,6 +4,8 @@ import { gsap } from "gsap";
 import { performanceImages, performanceImgPositions } from "../constants/index.js";
 import {useMediaQuery} from "react-responsive";
 
+const baseUrl = import.meta.env.VITE_BASE_URL || '';
+
 const Performance = () => {
     const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
     const sectionRef = useRef(null);
@@ -72,7 +74,7 @@ const Performance = () => {
                 {performanceImages.map((item, index) => (
                     <img
                         key={index}
-                        src={item.src}
+                        src={`${baseUrl}${item.src}`}
                         className={`p${item.id}`}
                         alt={item.alt || `Performance Image #${index + 1}`}
                     />

@@ -1,11 +1,12 @@
 import {footerLinks} from "../constants"
+const baseUrl = import.meta.env.VITE_BASE_URL || '';
 
 const Footer = () => {
     return (
         <footer>
             <div className="info">
                 <p>More ways to shop: Find an Apple Store or other retailer near you. Or call 000800 040 1966.</p>
-                <img src='/logo.svg' alt='Apple Logo'/>
+                <img src={`${baseUrl}/logo.svg`} alt='Apple Logo'/>
             </div>
 
             <hr />

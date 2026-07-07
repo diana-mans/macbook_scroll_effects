@@ -11,6 +11,8 @@ import useMacbookStore from "../store/index.js";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
 
+const baseUrl = import.meta.env.VITE_BASE_URL || '';
+
 const ModelScroll = () => {
     const groupRef = useRef(null);
     const isMobile = useMediaQuery({ query: '(max-width: 1024px)' });
@@ -20,7 +22,7 @@ const ModelScroll = () => {
         featureSequence.forEach((feature, index) => {
             const v = document.createElement('video');
             Object.assign(v, {
-                src: feature.videoPath,
+                src: baseUrl + feature.videoPath,
                 muted: true,
                 playsInline: true,
                 preload: 'auto',
@@ -62,19 +64,19 @@ const ModelScroll = () => {
 
         // Content & Texture sync
         timeline
-            .call(() => setTexture('/videos/feature-1.mp4'))
+            .call(() => setTexture(`${baseUrl}/videos/feature-1.mp4`))
             .to('.box1', { opacity: 1, y: 0, delay: 1 })
 
-            .call(() => setTexture('/videos/feature-2.mp4'))
+            .call(() => setTexture(`${baseUrl}/videos/feature-2.mp4`))
             .to('.box2', { opacity: 1, y: 0 })
 
-            .call(() => setTexture('/videos/feature-3.mp4'))
+            .call(() => setTexture(`${baseUrl}/videos/feature-3.mp4`))
             .to('.box3', { opacity: 1, y: 0 })
 
-            .call(() => setTexture('/videos/feature-4.mp4'))
+            .call(() => setTexture(`${baseUrl}/videos/feature-4.mp4`))
             .to('.box4', { opacity: 1, y: 0 })
 
-            .call(() => setTexture('/videos/feature-5.mp4'))
+            .call(() => setTexture(`${baseUrl}/videos/feature-5.mp4`))
             .to('.box5', { opacity: 1, y: 0 })
 
     }, []);
@@ -100,7 +102,7 @@ const Features = () => {
             <div className="absolute inset-0">
                 {features.map((feature, index) => (
                      <div key={feature.id} className={clsx('box', `box${index + 1}`, feature.styles)}>
-                        <img src={feature.icon} alt={feature.highlight} />
+                        <img src={baseUrl + feature.icon} alt={feature.highlight} />
                         <p>
                             <span className="text-white">{feature.highlight}</span>
                             {feature.text}

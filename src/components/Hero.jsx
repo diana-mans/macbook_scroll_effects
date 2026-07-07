@@ -1,4 +1,5 @@
 import {useEffect, useRef} from "react";
+const baseUrl = import.meta.env.VITE_BASE_URL || '';
 
 const Hero = () => {
     const videoRef = useRef(null);
@@ -12,10 +13,10 @@ const Hero = () => {
         <section id='hero'>
            <div>
                <h1>MacBook Pro</h1>
-               <img src={"/title.png"} alt="MacBook title" />
+               <img src={`${baseUrl}/title.png`} alt="MacBook title" />
            </div>
 
-            <video ref={videoRef} src={"/videos/hero.mp4"} autoPlay muted playsInline={true}/>
+            <video ref={videoRef} src={`${baseUrl}/videos/hero.mp4`} autoPlay muted playsInline={true}/>
 
             <button>Buy</button>
             <p>From $1599 or $133/mo for 12 months</p>

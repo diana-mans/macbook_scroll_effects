@@ -1,10 +1,11 @@
 import {navLinks} from '../constants'
+const baseUrl = import.meta.env.VITE_BASE_URL || '';
 
 const NavBar = () => {
     return (
         <header>
             <nav>
-                <img src="/logo.svg" alt="Apple logo" />
+                <img src={`${baseUrl}/logo.svg`} alt="Apple logo" />
                 <ul>
                     {navLinks.map(({label}) => <li key={label}>
                         <a href={label}>{label}</a>
@@ -12,10 +13,10 @@ const NavBar = () => {
                 </ul>
                 <div className="flex-center gap-3">
                     <button>
-                        <img src="/search.svg" alt="Search" />
+                        <img src={`${baseUrl}/search.svg`} alt="Search" />
                     </button>
                     <button>
-                        <img src="/cart.svg" alt="Cart" />
+                        <img src={`${baseUrl}/cart.svg`} alt="Cart" />
                     </button>
                 </div>
             </nav>

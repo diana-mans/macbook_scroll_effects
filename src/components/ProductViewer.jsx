@@ -6,6 +6,7 @@ import ModelSwitcher from "./three/ModelSwitcher.jsx";
 import {useMediaQuery} from "react-responsive";
 
 
+
 const ProductViewer = () => {
     const { color, scale, setColor, setScale} = useMacbookStore()
 

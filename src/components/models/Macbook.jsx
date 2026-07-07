@@ -13,14 +13,15 @@ import useMacbookStore from '../../store'
 import {useEffect} from 'react'
 import {noChangeParts} from '../../constants'
 
+const baseUrl = import.meta.env.VITE_BASE_URL || '';
+
 export function MacbookModel(props) {
   const { color, texture } = useMacbookStore()
-  const { nodes, materials, scene } = useGLTF('/models/macbook-transformed.glb')
+  const { nodes, materials, scene } = useGLTF(`${baseUrl}/models/macbook-transformed.glb`)
 
   const screen = useVideoTexture(texture)
 
   useEffect(() => {
-    console.log(color)
     scene.traverse((child) => {
       if (child.isMesh) {
         if (!noChangeParts.includes(child.name)) {
@@ -57,4 +58,4 @@ export function MacbookModel(props) {
   )
 }
 
-useGLTF.preload('/models/macbook-transformed.glb')
+useGLTF.preload(`${baseUrl}/models/macbook-transformed.glb`)

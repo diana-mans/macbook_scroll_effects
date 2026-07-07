@@ -2,6 +2,8 @@ import {useMediaQuery} from "react-responsive";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
 
+const baseUrl = import.meta.env.VITE_BASE_URL || '';
+
 const Showcase = () => {
     const isTablet = useMediaQuery({query: '(max-width: 1024px)'})
 
@@ -26,9 +28,9 @@ const Showcase = () => {
     return (
         <section id="showcase">
             <div className="media">
-                <video src="/videos/game.mp4" loop={true} muted={true} autoPlay playsInline/>
+                <video src={`${baseUrl}/videos/game.mp4`} loop={true} muted={true} autoPlay playsInline/>
                 <div className="mask">
-                    <img src="/mask-logo.svg"/>
+                    <img src={`${baseUrl}/mask-logo.svg`} alt="Mask Logo"/>
                 </div>
             </div>
             <div className="content">
